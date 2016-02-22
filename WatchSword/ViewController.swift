@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WCSessionDelegate {
 
+    @IBOutlet weak var attZ: UILabel!
+    @IBOutlet weak var attY: UILabel!
+    @IBOutlet weak var attX: UILabel!
+    
+    var watchSession : WCSession?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if(WCSession.isSupported()){
+            watchSession = WCSession.defaultSession()
+            watchSession!.delegate = self
+            watchSession!.activateSession()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +33,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]){
+        let atittudeX = message["attX"] as! Float
+        let atittudeY = message["attY"] as! Float
+        let atittudeZ = message["attZ"] as! Float
+        attZ.text = "AttZ: \(atittudeZ)"
+        attX.text = "AttZ: \(atittudeX)"
+        attY.text = "AttZ: \(atittudeY)"
+    }
 
 }
 
