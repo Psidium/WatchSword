@@ -34,12 +34,12 @@ class ViewController: UIViewController, WCSessionDelegate {
     }
 
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject]){
-        let atittudeX = message["attX"] as! Float
-        let atittudeY = message["attY"] as! Float
-        let atittudeZ = message["attZ"] as! Float
-        attZ.text = "AttZ: \(atittudeZ)"
-        attX.text = "AttZ: \(atittudeX)"
-        attY.text = "AttZ: \(atittudeY)"
+        let atittudeX = message["row"] as! Double
+        let atittudeY = message["pitch"] as! Double
+        let atittudeZ = message["yaw"] as! Double
+        attZ.text = "roll: \(atittudeZ)"
+        attX.text = "pitch: \(atittudeX)"
+        attY.text = "yaw: \(atittudeY)"
     }
 
 }

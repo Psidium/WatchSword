@@ -19,16 +19,27 @@ class InterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
-            (motionerOp: CMDeviceMotion?, error: NSError?) -> Void in
+        let communicator = SessionDelegate()
+        manager.deviceMotionUpdateInterval = 1 / 60
+        manager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
+            (motionerOp: CMDeviceMotion?, errorOp: NSError?) -> Void in
+            print("got into handler")
             guard let motion = motionerOp else {
+                if let error = errorOp {
+                    print(error.localizedDescription)
+                }
+                assertionFailure()
                 return
             }
-            print(motion.attitude)
+            print("passed guard")
+            let roll = motion.attitude.roll
+            let pitch = motion.attitude.pitch
+            let yaw = motion.attitude.yaw
+            let attitudeToSend = ["roll": roll, "pitch": pitch, "yaw": yaw]
+            communicator.send(attitudeToSend)
         }
         
-        
+        print("normal stack")
         // Configure interface objects here.
         image.setImage(InterfaceController.getSwordImage(300,height: 300))
 
