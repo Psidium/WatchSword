@@ -22,6 +22,8 @@
 		47CF095C1C7A466C0077D437 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF095B1C7A466C0077D437 /* ExtensionDelegate.swift */; };
 		47CF095E1C7A466C0077D437 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF095D1C7A466C0077D437 /* NotificationController.swift */; };
 		47CF09601C7A466C0077D437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47CF095F1C7A466C0077D437 /* Assets.xcassets */; };
+		47CF09761C7A4C800077D437 /* SwordImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF09751C7A4C800077D437 /* SwordImage.swift */; };
+		47CF09781C7A62BC0077D437 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CF09771C7A62BC0077D437 /* WatchConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		47CF095D1C7A466C0077D437 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		47CF095F1C7A466C0077D437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47CF09611C7A466C0077D437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47CF09751C7A4C800077D437 /* SwordImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwordImage.swift; sourceTree = "<group>"; };
+		47CF09771C7A62BC0077D437 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47CF09781C7A62BC0077D437 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +147,7 @@
 		47CF09121C7A466C0077D437 = {
 			isa = PBXGroup;
 			children = (
+				47CF09771C7A62BC0077D437 /* WatchConnectivity.framework */,
 				47CF091D1C7A466C0077D437 /* WatchSword */,
 				47CF09321C7A466C0077D437 /* WatchSwordTests */,
 				47CF093D1C7A466C0077D437 /* WatchSwordUITests */,
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				47CF09591C7A466C0077D437 /* InterfaceController.swift */,
+				47CF09751C7A4C800077D437 /* SwordImage.swift */,
 				47CF095B1C7A466C0077D437 /* ExtensionDelegate.swift */,
 				47CF095D1C7A466C0077D437 /* NotificationController.swift */,
 				47CF095F1C7A466C0077D437 /* Assets.xcassets */,
@@ -329,6 +336,7 @@
 				TargetAttributes = {
 					47CF091A1C7A466C0077D437 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 8384FUCWW9;
 					};
 					47CF092E1C7A466C0077D437 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -340,9 +348,11 @@
 					};
 					47CF09421C7A466C0077D437 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 8384FUCWW9;
 					};
 					47CF09511C7A466C0077D437 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 8384FUCWW9;
 					};
 				};
 			};
@@ -443,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47CF095E1C7A466C0077D437 /* NotificationController.swift in Sources */,
+				47CF09761C7A4C800077D437 /* SwordImage.swift in Sources */,
 				47CF095C1C7A466C0077D437 /* ExtensionDelegate.swift in Sources */,
 				47CF095A1C7A466C0077D437 /* InterfaceController.swift in Sources */,
 			);
@@ -585,10 +596,13 @@
 		47CF09651C7A466C0077D437 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSword WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -599,10 +613,13 @@
 		47CF09661C7A466C0077D437 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSword WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -614,11 +631,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WatchSword_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchSword WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -630,11 +650,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WatchSword_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchSword WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -646,7 +669,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WatchSword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -657,7 +682,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WatchSword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.psidium.WatchSword;
 				PRODUCT_NAME = "$(TARGET_NAME)";

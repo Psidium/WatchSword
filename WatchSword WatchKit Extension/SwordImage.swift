@@ -1,63 +1,27 @@
 //
-//  InterfaceController.swift
-//  WatchSword WatchKit Extension
+//  SwordImage.swift
+//  WatchSword
 //
 //  Created by Psidium on 2/21/16.
 //  Copyright © 2016 Psidium. All rights reserved.
 //
 
-import WatchKit
 import Foundation
-import CoreMotion
+import WatchKit
 
-class InterfaceController: WKInterfaceController {
-
-    @IBOutlet var image: WKInterfaceImage!
-
-    let manager = CMMotionManager()
+final class SwordImage : UIImage {
     
-    
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        
-        manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
-            (motionerOp: CMDeviceMotion?, error: NSError?) -> Void in
-            guard let motion = motionerOp else {
-                return
-            }
-            print(motion.attitude)
-        }
-        
-        
-        // Configure interface objects here.
-        image.setImage(InterfaceController.getSwordImage(300,height: 300))
-
-        
-    }
-
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
-    
-    class func getSwordImage(width: CGFloat, height: CGFloat) -> UIImage {
+    override init() {
         // Create a graphics context
-        let size = CGSizeMake(width, height)
+        let size = CGSizeMake(150, 150)
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         UIGraphicsPushContext(context!)
         
         
         //// Color Declarations
-        let color3 = UIColor(red: 0.640, green: 0.640, blue: 0.640, alpha: 1.000)
-        let color2 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let color3 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let color2 = UIColor(red: 0.812, green: 0.812, blue: 0.812, alpha: 1.000)
         let color0 = UIColor(red: 0.986, green: 0.000, blue: 0.041, alpha: 1.000)
         let color1 = UIColor(red: 0.521, green: 0.521, blue: 0.521, alpha: 1.000)
         
@@ -133,12 +97,17 @@ class InterfaceController: WKInterfaceController {
         // Convert to UIImage
         let cgimage = CGBitmapContextCreateImage(context)
         
-        let imageSword = UIImage(CGImage: cgimage!)
+        super.init(CGImage: cgimage!)
         // End the graphics context
         UIGraphicsPopContext()
         UIGraphicsEndImageContext()
-        
-        return imageSword
+    }
 
+    required convenience init(imageLiteral name: String) {
+        self.init()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
